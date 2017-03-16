@@ -4,6 +4,7 @@ var food ;
 var width = 600;
 var height = 600;
 var level = 8;
+var scl = 15;
 
 
 //MAIN FUNCTIONS
@@ -38,12 +39,9 @@ function draw(){
 /* if(this.snake.isSnakeOut(this.width, this.height)){
       noLoop();
       console.log("HAI PERSO!");
-<<<<<<< HEAD
+
    }*/
 
-=======
- }*/
->>>>>>> 57a6a9347ba5411b9d7aca2bf276f3a1364f7e2a
 //check if is dead
   if(this.snake.collision()){
       noLoop();
@@ -51,24 +49,39 @@ function draw(){
    }
    //upedate
       this.snake.update();
+
    //  and show snake
       this.snake.show();
+
    //make the snake eat the food and create a new piece of snake
-      if(this.snake.eat(this.food.foodPos())){
+   if(this.snake.eat(this.food.foodPos())){
       //create a new random piec of food
      this.food = new Food();
      this.food.show();
+     //level up
       levelUp();
   }
+  //build scenario
+  buildScenario(10);
+  showScenario();
   //level up
      console.log("CURRENT LVL  " +this.level);
 }
 
-function walls(){
-   for(var i = 0){
+/*function buildScenario(size){
+      for(var i = 0; i < size;  i += this.scl){
+         oWall = createVector(i, 0);
+         vWall =createVector(0, i);
+      }
 
-   }
 }
+
+function showScenario(){
+   for(var i = 0; i< this.oWall.length; i++){
+      rect(oWall[i].x,oWall[i].y, this.scl, this.scl);
+      rect(vWall[i].x,vWall[i].y, this.scl, this.scl);
+   }
+}*/
 
 function levelUp(){
    console.log("SIZE "+this.snake.getSize());
