@@ -1,15 +1,15 @@
 function Snake(width, height){
 //SNAKE VARIABLES
-     this.width = width;
-     this.height = height;
-     this.scl = 15; // snake's scale, VERY IMPORTANT FOR MANAGING GRID
-      this.ran = (round( random(1,(this.width/2)/this.scl) )*this.scl)-this.scl; //random start of snake
-     this.x =  this.ran; //x coord
-     this.y =  this.ran; //y coord
-    this.xspeed = 0; //X DIRECTION
-    this.yspeed = 0; //Y DIRECTION
-    this.body = [];
-    this.len = 0; //snake length
+   this.width = width;
+   this.height = height;
+   this.scl = 15; // snake's scale, VERY IMPORTANT FOR MANAGING GRID
+    this.ran = (round( random(1,(this.width/2)/this.scl) )*this.scl)-this.scl; //random start of snake
+   this.x =  this.ran; //x coord
+   this.y =  this.ran; //y coord
+  this.xspeed = 0; //X DIRECTION
+  this.yspeed = 0; //Y DIRECTION
+  this.body = [];
+  this.len = 0; //snake length
 
 
 
@@ -65,7 +65,7 @@ this.move = function(keyCode){
    }
 
 /*check snake position in the canvas, if out of bound return true*/
-this.isSnakeOut = function(x , y ){
+/*this.isSnakeOut = function(x , y ){
       if(this.x > x || this.y > y || this.x  < 0 || this.y < 0){
          this.len = 0;
          this.body = [];
@@ -74,38 +74,44 @@ this.isSnakeOut = function(x , y ){
          return false;
       }
 
-   }
+   }*/
 
    //SHOW SNAKE ON THE CANVAS
 this.show = function(){
       fill(255);
       for(var  i = 0; i < this.body.length; i++){
-      /*   if(this.body[i].x > this.width){
+        if(this.body[i].x > this.width){
              rect(this.body[i].x - this.width ,this.body[i].y,this.scl,this.scl);
+             this.body[i].x -= this.width;
          }else if(this.body[i].x < 0){
                rect(this.body[i].x + this.width,this.body[i].y,this.scl,this.scl);
+               this.body[i].x += this.width;
          }else if(this.body[i].y < 0){
                rect(this.body[i].x,this.body[i].y + this.height,this.scl,this.scl);
+               this.body[i].y += this.height;
          }else if(this.body[i].y > this.height){
                rect(this.body[i].x,this.body[i].y - this.height,this.scl,this.scl);
+               this.body[i].y -= this.height;
          }else{
                 rect(this.body[i].x,this.body[i].y,this.scl,this.scl);
-         }*/
-           rect(this.body[i].x,this.body[i].y,this.scl,this.scl);
+         }
+
       }
-      /*if(this.x > this.width){
+      if(this.x > this.width){
           rect(this.x - this.width ,this.y,this.scl,this.scl);
+          this.x -= this.width;
       }else if(this.x < 0){
             rect(this.x + this.width,this.y,this.scl,this.scl);
+            this.x += this.width;
       }else if(this.y < 0){
             rect(this.x,this.y + this.height,this.scl,this.scl);
+            this.y += this.height
       }else if(this.y > this.height){
             rect(this.x,this.y - this.height,this.scl,this.scl);
+            this.y -= this.height;
       }else{
              rect(this.x,this.y,this.scl,this.scl);
-      }*/
-      rect(this.x, this.y, this.scl,this.scl);
-
+      }
    }
 
 //MAKE SNAKE EATING
@@ -128,8 +134,11 @@ this.collision = function(){
    }
    return false;
 }
+
+
 this.getSize = function(){
    return this.len;
 }
+
 
 }

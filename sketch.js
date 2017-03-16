@@ -32,10 +32,10 @@ function draw(){
    background(0);
    this.food.show();
    //check if snake is in bounds
- if(this.snake.isSnakeOut(this.width, this.height)){
+/* if(this.snake.isSnakeOut(this.width, this.height)){
       noLoop();
       console.log("HAI PERSO!");
-   }
+ }*/
 //check if is dead
   if(this.snake.collision()){
       noLoop();
