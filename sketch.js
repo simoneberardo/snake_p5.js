@@ -38,8 +38,12 @@ function draw(){
 /* if(this.snake.isSnakeOut(this.width, this.height)){
       noLoop();
       console.log("HAI PERSO!");
+<<<<<<< HEAD
    }*/
 
+=======
+ }*/
+>>>>>>> 57a6a9347ba5411b9d7aca2bf276f3a1364f7e2a
 //check if is dead
   if(this.snake.collision()){
       noLoop();
