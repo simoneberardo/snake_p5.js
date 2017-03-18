@@ -4,24 +4,13 @@ function Snake(width, height){
    this.width = width;
    this.height = height;
    this.scl = 15; // snake's scale, VERY IMPORTANT FOR MANAGING GRID
-   this.ran = (round( random(1,(this.width/2)/this.scl) )*this.scl)-this.scl; //random start of snake
+   this.ran = (round( random(1,(this.width - (2*this.scl))/this.scl) )*this.scl); //random start of snake
    this.x =  this.ran; //x coord
    this.y =  this.ran; //y coord
    this.xspeed = 0; //X DIRECTION
    this.yspeed = 0; //Y DIRECTION
    this.body = [];
    this.len = 0; //snake length
-   this.width = width;
-   this.height = height;
-   this.scl = 15; // snake's scale, VERY IMPORTANT FOR MANAGING GRID
-   this.ran = (round( random(1,(this.width/2)/this.scl) )*this.scl)-this.scl; //random start of snake
-   this.x =  this.ran; //x coord
-   this.y =  this.ran; //y coord
-   this.xspeed = 0; //X DIRECTION
-   this.yspeed = 0; //Y DIRECTION
-   this.body = [];
-   this.len = 0; //snake length
-
 
 //UPDATE SNAKE POSITION IN CANVAS
 this.update = function (){
@@ -67,18 +56,6 @@ this.move = function(keyCode){
       }
 }
 
-/*check snake position in the canvas, if out of bound return true*/
-/*this.isSnakeOut = function(x , y ){
-      if(this.x > x || this.y > y || this.x  < 0 || this.y < 0){
-         this.len = 0;
-         this.body = [];
-         return true;
-      }else {
-         return false;
-      }
-   }
-*/
-
    //SHOW SNAKE ON THE CANVAS
 this.show = function(){
       fill(255);
@@ -122,7 +99,7 @@ this.show = function(){
 this.eat = function(foodP){
      if(this.x == foodP[0]  &&  this.y == foodP[1]){
         this.len++;
-        console.log(this.len);
+      //  console.log(this.len);
        return true;
      }
      return false;

@@ -5,6 +5,7 @@ var width = 600;
 var height = 600;
 var level = 8;
 var scl = 15;
+var walls = [];
 
 
 //MAIN FUNCTIONS
@@ -16,6 +17,9 @@ function setup(){
    frameRate(8);
    //create new instance of Food
    this.food = new Food();
+   buildScenario();
+    // console.log(this.walls.length);
+
 }
 
 function keyPressed(){
@@ -30,65 +34,81 @@ function restart(){
    window.location.reload();
 }
 
-
 function draw(){
    background(0);
+   showScenario();
    this.food.show();
-
-   //check if snake is in bounds
-/* if(this.snake.isSnakeOut(this.width, this.height)){
-      noLoop();
-      console.log("HAI PERSO!");
-
-   }*/
-
 //check if is dead
-  if(this.snake.collision()){
+
+  if(this.snake.collision() || this.wallCollision()){
+
       noLoop();
       console.log("HAI PERSO!");
    }
    //upedate
       this.snake.update();
-
    //  and show snake
       this.snake.show();
-
    //make the snake eat the food and create a new piece of snake
-   if(this.snake.eat(this.food.foodPos())){
+      if(this.snake.eat( this.food.foodPos() )){
       //create a new random piec of food
      this.food = new Food();
      this.food.show();
      //level up
       levelUp();
   }
-  //build scenario
-  buildScenario(10);
-  showScenario();
-  //level up
-     console.log("CURRENT LVL  " +this.level);
 }
 
-/*function buildScenario(size){
-      for(var i = 0; i < size;  i += this.scl){
-         oWall = createVector(i, 0);
-         vWall =createVector(0, i);
+function buildScenario(){
+   var halfH = (this.width/2);
+   var halfV = (this.height/2);
+   var count1 = 0;
+   var count2 = 0;
+      for(var i = 0; i < this.width; i+=this.scl){
+         /*console.log(i != (this.halfH - 2*this.scl));
+         console.log(i != this.halfH - this.scl);*/
+         console.log(i);
+         if(i != (halfH - 2*this.scl) && i != (halfH - this.scl) && i != this.width/2 && i != (halfH + this.scl) && i != (halfH + 2*this.scl)  ){
+            this.walls.push(new Wall(i,0));
+            this.walls.push(new Wall(i, this.height - this.scl));
+            count1++;
+         }
       }
+      for(var i = 0; i < this.height; i+=15){
+            if(i != (halfV - 2*this.scl) && i != (halfV - this.scl) && i != this.height/2 && i != (halfV + this.scl) && i != (halfV + 2*this.scl)  ){
+               this.walls.push(new Wall(0, i));
+               this.walls.push(new Wall(this.width - this.scl, i));
+               count2++;
+            }
+      }
+      console.log(halfH);
 
+      console.log("COUNT 1: "+count1);
+      console.log("COUNT 2: "+count2);
 }
 
 function showScenario(){
-   for(var i = 0; i< this.oWall.length; i++){
-      rect(oWall[i].x,oWall[i].y, this.scl, this.scl);
-      rect(vWall[i].x,vWall[i].y, this.scl, this.scl);
+   fill(100, 50, 50);
+   for(var i = 0; i < this.walls.length; i++){
+      rect(this.walls[i].x,this.walls[i].y,this.scl,this.scl);
+         //console.log("x : "+this.walls[i].x+" y: "+this.walls[i].y);
    }
-}*/
+}
 
 function levelUp(){
-   console.log("SIZE "+this.snake.getSize());
+   //console.log("SIZE "+this.snake.getSize());
    if(this.snake.getSize() % 5 == 0){
       this.level++;
       frameRate(this.level);
    }else {
       frameRate(this.level);
+   }
+}
+
+function wallCollision(){
+   for(var i = 0; i < this.walls.length; i++){
+      if(this.snake.x == this.walls[i].x && this.snake.y == this.walls[i].y){
+         return true;
+      }
    }
 }

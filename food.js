@@ -2,8 +2,8 @@ function Food(){
       this.width = 600;
       this.height = 600;
       this.scl = 15;
-      this.x = (round(random(1,this.width/this.scl))*this.scl)-this.scl;
-      this.y = (round(random(1,this.height/this.scl))*this.scl)-this.scl;
+      this.x = (round(random(1,(this.width - (2*this.scl))/this.scl))*this.scl);
+      this.y = (round(random(1,(this.height - (2*this.scl))/this.scl))*this.scl);
 
 
 
