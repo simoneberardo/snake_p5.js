@@ -10,7 +10,8 @@ var walls = [];
 
 //MAIN FUNCTIONS
 function setup(){
-   createCanvas(600,600);
+   var playground = createCanvas(600,600);
+   playground.parent('canvasArea');
    //create the first piece of snake and put it into snake array
    snake = new Snake(this.width, this.height);
    //console.log(this.ran+" "+this.ran);
