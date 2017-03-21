@@ -14,7 +14,7 @@ function Food(width,height){
       }
 
       this.show = function(){
-         fill(178,0,0);
+         fill(255,10,5);
          rect(this.x,this.y,this.scl,this.scl,10);
          //console.log(this.x+ " "+this.y);
       }

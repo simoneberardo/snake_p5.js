@@ -58,7 +58,7 @@ this.move = function(keyCode){
 
    //SHOW SNAKE ON THE CANVAS
 this.show = function(){
-      fill(164,123,62);
+      fill(round(random(170,255)),round(random(180,255)),round(random(0,20)));
       //coda
       if(this.body.length>0){
         if(this.body[0].x > this.width){
@@ -80,9 +80,9 @@ this.show = function(){
       //corpo
       for(var  i = 1; i < this.body.length; i++){
         if(i%2==0){
-          fill(89,152,47);
+          fill(10);
         }else{
-          fill(19,82,0);
+          fill(230,70,0);
         }
         if(this.body[i].x > this.width){
              rect(this.body[i].x - this.width ,this.body[i].y,this.scl,this.scl,3);
@@ -100,7 +100,7 @@ this.show = function(){
                 rect(this.body[i].x,this.body[i].y,this.scl,this.scl,3);
          }
       }
-      fill(89,152,47);
+      fill(10);
       //testa
       if(this.x >= this.width){
           rect(this.x - this.width -1 ,this.y-1,this.scl+2,this.scl+4,5);

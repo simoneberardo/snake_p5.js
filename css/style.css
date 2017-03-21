@@ -1,11 +1,24 @@
 body{
+  height: 100%;
+  width: 100%;
    margin: 0;
-   background: navy !important;
+   background: url('snakebg.jpeg') no-repeat;
+   background-size: cover;
+}
+.container{
+  margin: 0;
+  width: 100%;
 }
 
-.container{
+.box1{
+  display: flex;
+}
 
-   margin-bottom: 50px;
+.title{
+  font-family: 'Rock Salt', cursive;
+  padding-top: 10px;
+  padding-bottom: 35px;
+  text-align: center;
 }
 
 /*.container:before{
@@ -32,11 +45,13 @@ body{
    float:left;
 }
 .playground{
-   width:80%;
-   padding: 20px 0 50px 0;
-
+  margin: 0 auto;
+   width: 600px;
+   height: 600px;
 }
-.leaderboard{
-   float: right;
-
+.dashboard{
+  margin-right: 20px;
+  background: white;
+  height: 600px;
+  width: 200px;
 }
