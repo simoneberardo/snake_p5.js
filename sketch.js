@@ -16,8 +16,7 @@ function setup(){
    playground.parent('canvasArea');
    //create the first piece of snake and put it into snake array
    snake = new Snake(width, height);
-
-   //console.log(this.ran+" "+this.ran);
+//initial frame rate
    frameRate(8);
    //create new instance of Food
    this.food = new Food(width, height);
@@ -39,19 +38,25 @@ function restart(){
 }
 
 function draw(){
-  background(100,230,95);
-   background(bg);
+//background functions
+background(100,230,95);
+background(bg);
+
+   //prevent arraw key events --> don't move the web page
    window.addEventListener("keydown", function(e) {
     // space and arrow keys
     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
         e.preventDefault();
     }
-}, false);
-   showScenario();
-   this.food.show();
-//check if is dead
+   }, false);
 
-  if(this.snake.collision() || this.wallCollision()){
+//show builded scenario
+   showScenario();
+//show new piece of food
+   this.food.show();
+
+//check if is dead
+ if(this.snake.collision() || this.wallCollision()){
       noLoop();
       console.log("HAI PERSO!");
    }
@@ -62,11 +67,11 @@ function draw(){
       this.snake.update();
    //  and show snake
       this.snake.show();
-    }
+   }
+
    //make the snake eat the food and create a new piece of snake
       if(this.snake.eat( this.food.foodPos() )){
-      //create a new random piec of food
-      //
+      //create a new random piece of food, check if the new piece is spawning into the snake's tail .
       var flag=true;
       this.food = new Food(this.width, this.height);
       while(flag){
@@ -80,7 +85,7 @@ function draw(){
             }
           }
     }
-      //
+
      this.food.show();
      //level up
       levelUp();
@@ -109,22 +114,16 @@ function buildScenario(){
                count2++;
             }
       }
-      console.log(halfH);
-
-      console.log("COUNT 1: "+count1);
-      console.log("COUNT 2: "+count2);
 }
 
 function showScenario(){
    fill(10,80,0);
    for(var i = 0; i < this.walls.length; i++){
       rect(this.walls[i].x,this.walls[i].y,this.scl,this.scl);
-         //console.log("x : "+this.walls[i].x+" y: "+this.walls[i].y);
    }
 }
 
 function levelUp(){
-   //console.log("SIZE "+this.snake.getSize());
    if(this.snake.getSize() % 5 == 0){
       this.level++;
    }
