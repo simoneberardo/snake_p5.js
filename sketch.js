@@ -1,6 +1,7 @@
 //GLOBAL VARIABLES
 var snake ;
 var food ;
+var bg;
 var level = 8;
 var scl = 15;
 var walls = [];
@@ -10,6 +11,7 @@ var walls = [];
 function setup(){
   var width = 600;
   var height = 600;
+  bg = loadImage("css/grass1.jpg");
    var playground = createCanvas(width, height);
    playground.parent('canvasArea');
    //create the first piece of snake and put it into snake array
@@ -37,7 +39,8 @@ function restart(){
 }
 
 function draw(){
-   background(80, 80, 80);
+  background(100,230,95);
+   background(bg);
    window.addEventListener("keydown", function(e) {
     // space and arrow keys
     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
@@ -113,7 +116,7 @@ function buildScenario(){
 }
 
 function showScenario(){
-   fill(255,(round(random(0,170))),0);
+   fill(10,80,0);
    for(var i = 0; i < this.walls.length; i++){
       rect(this.walls[i].x,this.walls[i].y,this.scl,this.scl);
          //console.log("x : "+this.walls[i].x+" y: "+this.walls[i].y);
