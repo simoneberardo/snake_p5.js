@@ -58,40 +58,64 @@ this.move = function(keyCode){
 
    //SHOW SNAKE ON THE CANVAS
 this.show = function(){
-      fill(255);
-      //corpo
-      for(var  i = 0; i < this.body.length; i++){
-        if(this.body[i].x > this.width){
-             rect(this.body[i].x - this.width ,this.body[i].y,this.scl,this.scl);
-             this.body[i].x -= this.width;
-         }else if(this.body[i].x < 0){
-               rect(this.body[i].x + this.width,this.body[i].y,this.scl,this.scl);
-               this.body[i].x += this.width;
-         }else if(this.body[i].y < 0){
-               rect(this.body[i].x,this.body[i].y + this.height,this.scl,this.scl);
-               this.body[i].y += this.height;
-         }else if(this.body[i].y > this.height){
-               rect(this.body[i].x, this.body[i].y - this.height,this.scl,this.scl);
-               this.body[i].y -= this.height;
+      fill(164,123,62);
+      //coda
+      if(this.body.length>0){
+        if(this.body[0].x > this.width){
+             rect(this.body[0].x - this.width +1 ,this.body[0].y +1,this.scl-2,this.scl-2,3);
+             this.body[0].x -= this.width;
+         }else if(this.body[0].x < 0){
+               rect(this.body[0].x +1 + this.width,this.body[0].y +1,this.scl-2,this.scl-2,3);
+               this.body[0].x += this.width;
+         }else if(this.body[0].y < 0){
+               rect(this.body[0].x +1,this.body[0].y + this.height +1,this.scl-2,this.scl-2,3);
+               this.body[0].y += this.height;
+         }else if(this.body[0].y > this.height){
+               rect(this.body[0].x +1, this.body[0].y - this.height +1,this.scl-2,this.scl-2,3);
+               this.body[0].y -= this.height;
          }else{
-                rect(this.body[i].x,this.body[i].y,this.scl,this.scl);
+                rect(this.body[0].x +1,this.body[0].y +1,this.scl-2,this.scl-2,3);
          }
       }
+      //corpo
+      for(var  i = 1; i < this.body.length; i++){
+        if(i%2==0){
+          fill(89,152,47);
+        }else{
+          fill(19,82,0);
+        }
+        if(this.body[i].x > this.width){
+             rect(this.body[i].x - this.width ,this.body[i].y,this.scl,this.scl,3);
+             this.body[i].x -= this.width;
+         }else if(this.body[i].x < 0){
+               rect(this.body[i].x + this.width,this.body[i].y,this.scl,this.scl,3);
+               this.body[i].x += this.width;
+         }else if(this.body[i].y < 0){
+               rect(this.body[i].x,this.body[i].y + this.height,this.scl,this.scl,3);
+               this.body[i].y += this.height;
+         }else if(this.body[i].y > this.height){
+               rect(this.body[i].x, this.body[i].y - this.height,this.scl,this.scl,3);
+               this.body[i].y -= this.height;
+         }else{
+                rect(this.body[i].x,this.body[i].y,this.scl,this.scl,3);
+         }
+      }
+      fill(89,152,47);
       //testa
       if(this.x >= this.width){
-          rect(this.x - this.width ,this.y,this.scl,this.scl);
+          rect(this.x - this.width -1 ,this.y-1,this.scl+2,this.scl+4,5);
           this.x -= this.width;
       }else if(this.x < 0){
-            rect(this.x + this.width,this.y,this.scl,this.scl);
+            rect(this.x + this.width -1,this.y-1,this.scl+2,this.scl+4,5);
             this.x += this.width;
       }else if(this.y < 0){
-            rect(this.x,this.y + this.height,this.scl,this.scl);
+            rect(this.x-1,this.y + this.height -1,this.scl+2,this.scl+4,5);
             this.y += this.height;
       }else if(this.y >= this.height){
-            rect(this.x,this.y - this.height,this.scl,this.scl);
+            rect(this.x-1,this.y - this.height -1,this.scl+2,this.scl+4,5);
             this.y -= this.height;
       }else{
-             rect(this.x,this.y,this.scl,this.scl);
+             rect(this.x-2,this.y-2,this.scl+4,this.scl+4,5);
       }
    }
 
