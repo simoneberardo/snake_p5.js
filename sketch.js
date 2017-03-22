@@ -41,9 +41,8 @@ function restart(){
 
 function draw(){
 //background functions
-//background(178,198,105);
-//background(bg);
-  var bg = getElementById("")
+background(178,198,105);
+background(bg);
    //prevent arraw key events --> don't move the web page
    window.addEventListener("keydown", function(e) {
     // space and arrow keys
