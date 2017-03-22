@@ -5,10 +5,12 @@ var bg;
 var level = 8;
 var scl = 15;
 var walls = [];
-
+var score = 0;
+var game;
 
 //MAIN FUNCTIONS
 function setup(){
+  this.game = new Game();
   var width = 600;
   var height = 600;
   bg = loadImage("css/grass1.jpg");
@@ -39,9 +41,9 @@ function restart(){
 
 function draw(){
 //background functions
-background(100,230,95);
-background(bg);
-
+//background(178,198,105);
+//background(bg);
+  var bg = getElementById("")
    //prevent arraw key events --> don't move the web page
    window.addEventListener("keydown", function(e) {
     // space and arrow keys
@@ -85,8 +87,11 @@ background(bg);
             }
           }
     }
-
      this.food.show();
+     //display score
+     this.score += this.game.score(this.level);
+     var sa = document.getElementById("scoreArea");
+     sa.innerHTML = "YOUR SCORE:<br/><span class='bigger'>"+this.score+"</span>";
      //level up
       levelUp();
   }
@@ -130,6 +135,10 @@ function levelUp(){
    if(this.level<=25){
     frameRate(this.level);
   }
+  //display snake length
+  var la = document.getElementById("lengthArea");
+  var lengthDisplay = this.snake.getSize()+1;
+  la.innerHTML = "SNAKE LENGTH:<br/><span class='bigger'>"+lengthDisplay+"</span>";
 }
 
 function wallCollision(){

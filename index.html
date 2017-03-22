@@ -1,14 +1,17 @@
 <html>
   <head>
-
+    <title>Snake</title>
     <script src="sketch.js"></script>
     <script src="p5.min.js"></script>
      <script src="snake.js"></script>
      <script src="food.js"></script>
      <script src="Wall.js"></script>
+     <script src="game.js"></script>
+     <link rel="shortcut icon" type="image/png" href="css/snake.png"/>
      <link rel="stylesheet" href="css/style.css">
      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
      <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
 
   </head>
   <body>
@@ -16,7 +19,11 @@
             <h1 class="title">SNAKE</h1>
             <div class="box1">
                <div class ="playground" id="canvasArea"></div>
-               <div class="dashboard">DASHBOARD</div>
+               <div class="dashboard">
+                 <h3>DASHBOARD</h3>
+                 <p id="lengthArea">SNAKE LENGTH:<br/><span class='bigger'>1</span></p>
+                 <p id="scoreArea"></p>
+               </div>
         </div>
   </body>
 </html>

@@ -21,26 +21,6 @@ body{
   text-align: center;
 }
 
-/*.container:before{
-   content: ' ';
-   display: block;
-   position: absolute;
-   left: 0;
-   top: 0;
-   width: 100%;
-   height: 100%;
-   z-index: 1;
-   opacity: 0.3;
-   background-image: url('snakebg.jpeg');
-   background-repeat: no-repeat;
-   background-position: 50% 0;
-   -ms-background-size: cover;
-   -o-background-size: cover;
-   -moz-background-size: cover;
-   -webkit-background-size: cover;
-   background-size: cover;
-}*/
-
 .advise{
    float:left;
 }
@@ -49,9 +29,29 @@ body{
    width: 600px;
    height: 600px;
 }
+
 .dashboard{
-  margin-right: 20px;
-  background: white;
-  height: 600px;
+  border: 8px solid rgb(139,69,19);
+  font-size: 1.5em;
+  font-family: 'Reenie Beanie', cursive;
+  color: rgb(243,242,242);
+  background: url('board.jpg');
+  background-size: cover;
+  text-align: center;
+  margin-right: 10%;
+  height: 584px;
   width: 200px;
+}
+
+#scoreArea{
+  font-weight: bold;
+  color: rgb(252,108,69);
+}
+
+#lengthArea{
+  font-weight: bold;
+  color: rgb(178,198,105);
+}
+.bigger{
+  font-size: 1.7em;
 }
