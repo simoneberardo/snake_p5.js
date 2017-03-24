@@ -7,13 +7,21 @@ var scl = 15;
 var walls = [];
 var score = 0;
 var game;
+var lavender;
+var t0;
+var t1;
 
 //MAIN FUNCTIONS
+function preload(){
+  lavender = loadSound('media/LT.mp3');
+}
+
 function setup(){
   this.game = new Game();
+  this.lavender.play();
   var width = 600;
   var height = 600;
-  bg = loadImage("css/grass1.jpg");
+  bg = loadImage("media/grass.jpg");
    var playground = createCanvas(width, height);
    playground.parent('canvasArea');
    //create the first piece of snake and put it into snake array
@@ -86,11 +94,19 @@ background(bg);
             }
           }
     }
+      this.t1=performance.now();
      this.food.show();
      //display score
-     this.score += this.game.score(this.level);
+     if(this.snake.body.length==0)
+     {
+       this.score+=10;
+     }
+     else{
+       this.score += this.game.score(this.level,this.t1,this.t0);
+     }
      var sa = document.getElementById("scoreArea");
      sa.innerHTML = "YOUR SCORE:<br/><span class='bigger'>"+this.score+"</span>";
+     this.t0=this.t1;
      //level up
       levelUp();
   }
