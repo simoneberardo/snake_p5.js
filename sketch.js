@@ -10,6 +10,8 @@ var game;
 var lavender;
 var t0;
 var t1;
+var ranking_score = [];
+var ranking_user = [];
 
 //MAIN FUNCTIONS
 function preload(){
@@ -67,7 +69,9 @@ background(bg);
 //check if is dead
  if(this.snake.collision() || this.wallCollision()){
       noLoop();
-      console.log("HAI PERSO!");
+
+      this.game.ranking("Simone", this.score, this.ranking_score, this.ranking_user);
+      console.log(this.ranking_user[0]+" "+this.ranking_user[1]);
    }
 
    //check if the game is on going
