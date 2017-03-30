@@ -7,20 +7,19 @@ var scl = 15;
 var walls = [];
 var score = 0;
 var game;
-//var lavender;
+var bite;
 var t0;
 var t1;
 var ranking_score = [];
 var ranking_user = [];
 
 //MAIN FUNCTIONS
-/*function preload(){
-  lavender = loadSound('media/LT.mp3');
-}*/
+function preload(){
+  bite = loadSound('media/bite.mp3');
+}
 
 function setup(){
   this.game = new Game();
-  //this.lavender.play();
   var width = 600;
   var height = 600;
   bg = loadImage("media/grass.jpg");
@@ -69,6 +68,17 @@ background(bg);
 //check if is dead
  if(this.snake.collision() || this.wallCollision()){
       $('#gameOverModal').modal({backdrop:'static', keyboard:false});
+      if(parseInt(this.score)==0){
+        $("#compliments").html("LOL!");
+      } else if(parseInt(this.score)<500){
+        $("#compliments").html("TRY HARDER NEXT TIME!");
+      } else if(parseInt(this.score)>500 && parseInt(this.score)<2500){
+        $("#compliments").html("NICE TRY!");
+      } else if(parseInt(this.score)>2500 && parseInt(this.score)<10000){
+        $("#compliments").html("GOOD JOB!");
+      } else{
+        $("#compliments").html("YOU ARE GREAT!");
+      }
       $("#scoreArea2").html("YOUR SCORE:<br/><span class='bigger'>"+this.score+"</span>");
       noLoop();
 
@@ -78,14 +88,16 @@ background(bg);
 
    //check if the game is on going
    if(!wallCollision()){
-     //update
+      //update
       this.snake.update();
-   //  and show snake
+      //and show snake
       this.snake.show();
    }
 
-   //make the snake eat the food and create a new piece of snake
-      if(this.snake.eat( this.food.foodPos() )){
+    //make the snake eat the food and create a new piece of snake
+    if(this.snake.eat( this.food.foodPos() )){
+      //eating sound
+      this.bite.play();
       //create a new random piece of food, check if the new piece is spawning into the snake's tail .
       var flag=true;
       this.food = new Food(this.width, this.height);
@@ -98,24 +110,24 @@ background(bg);
                flag=true;
                break;
             }
-          }
-    }
+        }
+      }
       this.t1=performance.now();
-     this.food.show();
-     //display score
-     if(this.snake.body.length==0)
-     {
-       this.score+=10;
-     }
-     else{
-       this.score += this.game.score(this.level,this.t1,this.t0);
-     }
-     $("#scoreArea").html("YOUR SCORE:<br/><span class='bigger'>"+this.score+"</span>");
-     this.t0=this.t1;
-     //level up
-      levelUp();
-  }
-}
+       this.food.show();
+       //display score
+       if(this.snake.body.length==0)
+       {
+         this.score+=10;
+       }
+       else{
+         this.score += this.game.score(this.level,this.t1,this.t0);
+       }
+       $("#scoreArea").html("YOUR SCORE:<br/><span class='bigger'>"+this.score+"</span>");
+       this.t0=this.t1;
+       //level up
+        levelUp();
+      }
+    }
 
 function buildScenario(){
    var halfH = (this.width/2);
