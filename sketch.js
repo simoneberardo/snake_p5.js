@@ -10,6 +10,8 @@ var game;
 //var lavender;
 var t0;
 var t1;
+var ranking_score = [];
+var ranking_user = [];
 
 //MAIN FUNCTIONS
 /*function preload(){
@@ -69,7 +71,9 @@ background(bg);
       $('#gameOverModal').modal({backdrop:'static', keyboard:false});
       $("#scoreArea2").html("YOUR SCORE:<br/><span class='bigger'>"+this.score+"</span>");
       noLoop();
-      console.log("HAI PERSO!");
+
+      this.game.ranking("Simone", this.score, this.ranking_score, this.ranking_user);
+      console.log(this.ranking_user[0]+" "+this.ranking_user[1]);
    }
 
    //check if the game is on going

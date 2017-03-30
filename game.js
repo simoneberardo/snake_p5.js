@@ -10,4 +10,5 @@ function Game(){
      //provvisoria
      return 10*(level-7);
    }
+
 }
