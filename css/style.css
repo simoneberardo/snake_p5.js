@@ -2,23 +2,30 @@ body{
   height: 100%;
   width: 100%;
    margin: 0;
+   padding: 0;
    background: url('../media/snakebg.jpeg') no-repeat;
    background-size: cover;
 }
 .container{
   margin: 0;
   width: 100%;
+  padding: 0;
 }
 
 .box1{
+  margin: 0;
   display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .title{
+  margin-left: 10%;
   font-family: 'Rock Salt', cursive;
   padding-top: 10px;
   padding-bottom: 35px;
   text-align: center;
+  font-weight: bold;
 }
 
 .advise{
@@ -28,6 +35,8 @@ body{
   margin: 0 auto;
    width: 600px;
    height: 600px;
+   margin-left: 10%;/*5%*/
+   margin-right: 10%;
 }
 
 .dashboard{
@@ -38,9 +47,9 @@ body{
   background: url('../media/board.jpg');
   background-size: cover;
   text-align: center;
-  margin-right: 10%;
-  height: 584px;
+  height: 600px;
   width: 200px;
+  min-width: 200px;
 }
 
 #scoreArea{
@@ -54,4 +63,44 @@ body{
 }
 .bigger{
   font-size: 1.7em;
+}
+
+#instructionsBtn{
+  font-family: 'Arial';
+  color:#000;
+  background: rgb(233,232,232);
+  border: 2px solid rgb(169,99,49);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.modal{
+    font-family: 'Press Start 2P', cursive;
+}
+
+.modal-body{
+  text-align: center;
+}
+
+#instructions, #instructions:hover{
+  font-family: 'Press Start 2P', cursive;
+  float:right;
+  text-decoration: none;
+  color:inherit;
+  font-size: 0.48em;
+  font-weight: normal;
+  margin-right: 10%;
+}
+
+.banner1{
+  border: 8px solid rgb(139,69,19);
+  font-size: 1.5em;
+  font-family: 'Reenie Beanie', cursive;
+  color: #000;
+  background: gray;
+  background-size: cover;
+  text-align: center;
+  height: 600px;
+  width: 200px;
+  min-width: 200px;
 }
