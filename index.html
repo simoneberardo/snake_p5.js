@@ -1,18 +1,12 @@
 <html>
   <head>
     <title>Snake</title>
-
-    <meta name="author" content="Alessandro Atzeni, Simone Berardo"><!--ordered alphabetically!!!-->
-    <meta name="description" content="play snake for free">
-    <meta name="keywords" content="snake free gratis game">
-
     <link rel="shortcut icon" type="image/png" href="media/snake.png"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-
     <script
 			  src="https://code.jquery.com/jquery-3.2.1.min.js"
 			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -62,8 +56,7 @@
               <div class="modal-body">
                 <p>Eat the red fruit <img src="media/redball.png" width="15px"/></p><br />
                 <p>Use WASD or Arrow Keys to move the snake</p>
-                <img id="arrows" src="media/arrows.png" /><br />
-                <p>Avoid the walls <img id="wall" src="media/wall.png" /> you can pass through the gaps</p>
+                <img id="arrows" src="media/arrows.png" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -80,7 +73,7 @@
                 <h4 class="modal-title GO">GAME OVER</h4>
               </div>
               <div class="modal-body GO">
-                <p id="compliments" class="bigger"></p>
+                <p class="bigger">NICE TRY!</p>
                 <p id="scoreArea2"></p>
               </div>
               <div class="modal-footer">
@@ -89,6 +82,8 @@
             </div>
           </div>
         </div>
+
+
 
   </body>
 </html>
