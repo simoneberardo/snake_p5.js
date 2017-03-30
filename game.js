@@ -9,4 +9,5 @@ function Game(){
    this.score = function(level,t1,t0){
      //provvisoria
      return 10*(level-7);
+   }
 }

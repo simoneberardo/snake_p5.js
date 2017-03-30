@@ -7,18 +7,18 @@ var scl = 15;
 var walls = [];
 var score = 0;
 var game;
-var lavender;
+//var lavender;
 var t0;
 var t1;
 
 //MAIN FUNCTIONS
-function preload(){
+/*function preload(){
   lavender = loadSound('media/LT.mp3');
-}
+}*/
 
 function setup(){
   this.game = new Game();
-  this.lavender.play();
+  //this.lavender.play();
   var width = 600;
   var height = 600;
   bg = loadImage("media/grass.jpg");
@@ -66,6 +66,8 @@ background(bg);
 
 //check if is dead
  if(this.snake.collision() || this.wallCollision()){
+      $('#gameOverModal').modal({backdrop:'static', keyboard:false});
+      $("#scoreArea2").html("YOUR SCORE:<br/><span class='bigger'>"+this.score+"</span>");
       noLoop();
       console.log("HAI PERSO!");
    }
@@ -104,8 +106,7 @@ background(bg);
      else{
        this.score += this.game.score(this.level,this.t1,this.t0);
      }
-     var sa = document.getElementById("scoreArea");
-     sa.innerHTML = "YOUR SCORE:<br/><span class='bigger'>"+this.score+"</span>";
+     $("#scoreArea").html("YOUR SCORE:<br/><span class='bigger'>"+this.score+"</span>");
      this.t0=this.t1;
      //level up
       levelUp();
@@ -151,9 +152,8 @@ function levelUp(){
     frameRate(this.level);
   }
   //display snake length
-  var la = document.getElementById("lengthArea");
   var lengthDisplay = this.snake.getSize()+1;
-  la.innerHTML = "SNAKE LENGTH:<br/><span class='bigger'>"+lengthDisplay+"</span>";
+  $("#lengthArea").html("SNAKE LENGTH:<br/><span class='bigger'>"+lengthDisplay+"</span>");
 }
 
 function wallCollision(){

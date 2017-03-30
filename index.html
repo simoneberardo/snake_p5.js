@@ -1,24 +1,41 @@
 <html>
   <head>
     <title>Snake</title>
-    <script src="sketch.js"></script>
+    <link rel="shortcut icon" type="image/png" href="media/snake.png"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <script
+			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <script src="p5.min.js"></script>
+    <script src="sketch.js"></script>
      <script src="snake.js"></script>
      <script src="food.js"></script>
      <script src="Wall.js"></script>
      <script src="game.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/addons/p5.sound.min.js"></script>
-     <link rel="shortcut icon" type="image/png" href="media/snake.png"/>
-     <link rel="stylesheet" href="css/style.css">
-     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-     <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
 
   </head>
   <body>
       <div class ="container">
-            <h1 class="title">SNAKE</h1>
+            <h1 class="title">SNAKE
+              <a id="instructions" href="#"
+                data-toggle="modal"
+                data-target="#instructionsModal">Instructions</a></h1>
             <div class="box1">
+
+              <!--<div class="banner1">
+                <h3>BANNER</h3>
+              </div>-->
+
                <div class ="playground" id="canvasArea"></div>
                <div class="dashboard">
                  <h3>DASHBOARD</h3>
@@ -26,5 +43,44 @@
                  <p id="scoreArea"></p>
                </div>
         </div>
+
+        <div id="instructionsModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">INSTRUCTIONS</h4>
+              </div>
+              <div class="modal-body">
+                <p>Eat the red fruit <img src="media/redball.png" width="15px"/></p><br />
+                <p>Use WASD or Arrow Keys to move the snake</p>
+                <img id="arrows" src="media/arrows.png" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="gameOverModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title GO">GAME OVER</h4>
+              </div>
+              <div class="modal-body GO">
+                <p class="bigger">NICE TRY!</p>
+                <p id="scoreArea2"></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="restart()">Restart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
   </body>
 </html>

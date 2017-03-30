@@ -29,24 +29,28 @@ this.update = function (){
 this.move = function(keyCode){
       switch (keyCode) {
          case UP_ARROW:
+         case 87:
                   if(this.yspeed == 0){
                      this.yspeed = -1;
                      this.xspeed= 0;
                   }
                   break;
          case DOWN_ARROW:
+         case 83:
                   if(this.yspeed == 0){
                      this.xspeed= 0;
                      this.yspeed = 1;
                   }
                   break;
          case LEFT_ARROW:
+         case 65:
                   if(this.xspeed == 0){
                      this.xspeed= -1;
                      this.yspeed = 0;
                   }
                   break;
          case RIGHT_ARROW:
+         case 68:
                   if(this.xspeed == 0){
                      this.xspeed= 1;
                      this.yspeed =0 ;
